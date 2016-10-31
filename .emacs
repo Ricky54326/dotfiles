@@ -30,10 +30,14 @@
 
 
 ;; get packages that are missing
-(defvar riccardo/packages '(go-mode
-                            solarized-theme
+(defvar riccardo/packages '(gist
                             go-autocomplete
-                            markdown-mode)
+                            go-mode
+                            haskell-mode
+                            markdown-mode
+                            scala-mode
+                            solarized-theme
+                            verilog-mode)
   "Default packages")
 
 
