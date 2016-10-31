@@ -13,8 +13,6 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'ssh' \
   'completion' \
-  'homebrew' \
-  'osx' \
   'git' \
   'syntax-highlighting' \
   'history-substring-search' \
@@ -27,7 +25,7 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Set the prompt theme to load.
-zstyle ':prezto:module:prompt' theme 'tmuch'
+zstyle ':prezto:module:prompt' theme 'riccardo'
 
 # Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'
