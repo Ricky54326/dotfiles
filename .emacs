@@ -55,7 +55,8 @@
 
 
 ;; no tabs plz
-(setq-default indent-tabs-mode nil)
+(setq tab-width 2
+      indent-tabs-mode nil)
 
 
 (custom-set-variables
@@ -83,3 +84,13 @@
 
 ;; follow symlinks automatically
 (setq vc-follow-symlinks t)
+
+
+;; go-mode, and go fmt before save
+
+(require 'go-autocomplete)
+
+(add-hook 'go-mode-hook
+          (lambda ()
+            (go-eldoc-setup)
+            (add-hook 'before-save-hook 'gofmt-before-save)))
