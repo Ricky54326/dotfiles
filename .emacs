@@ -1,3 +1,8 @@
+(require 'saveplace)
+(require 'cl) ;; common-lisp stuff 
+
+
+;; move all tildefiles to ~/.saves
 (setq
    backup-by-copying t      ; don't clobber symlinks
    backup-directory-alist
@@ -7,7 +12,9 @@
    kept-old-versions 2
    version-control t)       ; use versioned backups
 
-(require 'saveplace)
+
+
+;; save place in file when re-opening it
 (setq-default save-place t)
 
 
@@ -22,14 +29,13 @@
     (package-initialize))
 
 
-;; get packages missing
+;; get packages that are missing
 (defvar riccardo/packages '(go-mode
                             solarized-theme
                             go-autocomplete
                             markdown-mode)
   "Default packages")
 
-(require 'cl) ;; need common-lisp
 
 (defun riccardo/packages-installed-p ()
   (cl-loop for pkg in riccardo/packages
@@ -71,3 +77,5 @@
 (load-theme 'solarized-light)
 
 
+;; follow symlinks automatically
+(setq vc-follow-symlinks t)
