@@ -44,3 +44,8 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 bindkey -e
 bindkey '^[[1;5D' forward-word
 bindkey '^[[1;5C' backward-word
+
+
+spellcheck() {
+    ispell -l < $1 | sort | uniq
+}
