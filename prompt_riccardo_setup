@@ -2,17 +2,17 @@
 # Load dependencies.
 pmodload 'helper'
 
-function prompt_tmuch_pwd {
+function prompt_riccardo_pwd {
   local pwd="${PWD/#$HOME/~}"
-  _prompt_tmuch_pwd="$pwd"
+  _prompt_riccardo_pwd="$pwd"
 }
 
-function prompt_tmuch_precmd {
+function prompt_riccardo_precmd {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
 
   # Format PWD.
-  prompt_tmuch_pwd
+  prompt_riccardo_pwd
 
   # Get Git repository information.
   if (( $+functions[git-info] )); then
@@ -21,7 +21,7 @@ function prompt_tmuch_precmd {
 
 }
 
-function prompt_tmuch_setup {
+function prompt_riccardo_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent subst)
@@ -30,7 +30,7 @@ function prompt_tmuch_setup {
   autoload -Uz add-zsh-hook
 
   # Add hook for icalling git-info before each command.
-  add-zsh-hook precmd prompt_tmuch_precmd
+  add-zsh-hook precmd prompt_riccardo_precmd
 
   # Set editor-info parameters.
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
@@ -61,10 +61,10 @@ function prompt_tmuch_setup {
     'rprompt' '%A%B%S%a%d%m%r%U%u'
 
   # Define prompts.
-  PROMPT='%F{119}${_prompt_tmuch_pwd}%f%F{248}${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)%f
+  PROMPT='%F{119}${_prompt_riccardo_pwd}%f%F{248}${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)%f
 %F{119}${editor_info[keymap]}%f '
   RPROMPT='%(?..%F{red}%? ↵%f)'
 }
 
-prompt_tmuch_setup "$@"
+prompt_riccardo_setup "$@"
 
