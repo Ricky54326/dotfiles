@@ -52,3 +52,5 @@ spellcheck() {
 
 alias ssh-x="ssh -XC -c blowfish-cbc,arcfour "
 alias ssh-bl="ssh-x riccardo@best-linux.cs.wisc.edu"
+
+export GOPATH=~/Development/go
