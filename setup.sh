@@ -21,6 +21,11 @@ cp prompt_riccardo_setup ~/.zprezto/modules/prompt/functions/
 cp .zpreztorc ~/
 
 # Install pip
+if hash pip 2>/dev/null; then
+    echo "pip already installed, exiting..."
+    exit
+fi
+    
 echo "Installing pip..."
 sudo easy_install pip
 
