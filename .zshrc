@@ -6,8 +6,8 @@ fi
 unsetopt correct
 
 export PATH=$PATH:$HOME/bin
-export GIT_EDITOR='emacs'
-export EDITOR='emacs'
+export GIT_EDITOR='emacs -nw'
+export EDITOR='emacs -nw'
 export LSCOLORS="axfxcxdxbxegedabagacad"
 
 if [ -f ~/.bash_aliases ]; then
