@@ -1,6 +1,5 @@
-(require 'saveplace)
 (require 'cl) ;; common-lisp stuff 
-
+(require 'saveplace) ;; save place in file 
 
 ;; move all tildefiles to ~/.saves
 (setq
@@ -13,10 +12,10 @@
    version-control t)       ; use versioned backups
 
 
-
-;; save place in file when re-opening it
-(setq-default save-place t)
-
+;; save place for emacs 25
+(if (>= emacs-major-version 25)
+  (save-place-mode 1)
+  (setq-default save-place t))
 
 
 ;; set up melpa

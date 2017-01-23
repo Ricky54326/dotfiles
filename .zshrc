@@ -6,8 +6,8 @@ fi
 unsetopt correct
 
 export PATH=$PATH:$HOME/bin
-export GIT_EDITOR='vim'
-export EDITOR='vim'
+export GIT_EDITOR='emacs -nw'
+export EDITOR='emacs -nw'
 export LSCOLORS="axfxcxdxbxegedabagacad"
 
 if [ -f ~/.bash_aliases ]; then
@@ -49,3 +49,8 @@ bindkey '^[[1;5C' backward-word
 spellcheck() {
     ispell -l < $1 | sort | uniq
 }
+
+alias ssh-x="ssh -XC -c blowfish-cbc,arcfour "
+alias ssh-bl="ssh-x riccardo@best-linux.cs.wisc.edu"
+
+export GOPATH=~/Development/go
