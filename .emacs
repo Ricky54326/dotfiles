@@ -36,6 +36,7 @@
                             haskell-mode
                             markdown-mode
                             scala-mode
+			    sml-mode
                             solarized-theme
                             verilog-mode)
   "Default packages")
