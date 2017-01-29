@@ -33,6 +33,7 @@
                             go-autocomplete
                             go-mode
                             haskell-mode
+			    js2-mode
                             markdown-mode
                             scala-mode
 			    sml-mode
@@ -94,3 +95,24 @@
           (lambda ()
             (go-eldoc-setup)
             (add-hook 'before-save-hook 'gofmt-before-save)))
+
+
+(defun sml-reload-file ()
+  "Stop the SML repl and load the current file."
+  (interactive)
+  (when (get-buffer "*sml*")
+    (with-current-buffer "*sml*"
+      (when (get-buffer-process "*sml*")
+        (kill-process sml-prog-proc--buffer)
+        (erase-buffer))))
+  (sleep-for 0.2)
+  (sml-run "sml" "")
+  (sml-prog-proc-load-file buffer-file-name t)
+  (end-of-buffer))
+
+
+(require 'sml-mode)
+(add-hook 'sml-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-c C-k") 'sml-reload-file)))
+

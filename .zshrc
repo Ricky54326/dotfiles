@@ -54,3 +54,7 @@ alias ssh-x="ssh -XC -c blowfish-cbc,arcfour "
 alias ssh-bl="ssh-x riccardo@best-linux.cs.wisc.edu"
 
 export GOPATH=~/Development/go
+
+case "$TERM" in
+       xterm*) export TERM=xterm-256color
+esac 
