@@ -49,6 +49,34 @@
   :bind ("C-c C-f" . projectile-find-file)
   :diminish projectile-mode)
 
+(global-subword-mode 1)
+
+(use-package diminish
+  :ensure t
+  :pin melpa
+  :diminish subword-mode)
+
+(use-package hungry-delete
+  :ensure t
+  :pin melpa
+  :diminish hungry-delete-mode
+  :config
+  (global-hungry-delete-mode))
+
+(use-package ag
+  :ensure t
+  :pin melpa)
+
+(use-package auto-complete
+  :ensure t
+  :pin melpa
+  :config
+  (ac-config-default))
+
+(use-package go-autocomplete
+  :ensure t
+  :pin melpa-stable)
+
 (use-package undo-tree
   :ensure t
   :pin melpa
@@ -92,6 +120,12 @@
   (split-window-horizontally)
   (windmove-right))
 
+(defun quit-emacs ()
+  "Quit emacs"
+  (interactive)
+  (save-buffers-kill-terminal))
+
+(global-unset-key (kbd "C-x C-c"))
 (global-set-key [mouse-8] 'previous-buffer)
 (global-set-key [mouse-9] 'next-buffer)
 (global-set-key (kbd "C-x 2") 'split-and-move-vertically)
